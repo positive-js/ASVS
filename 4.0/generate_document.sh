@@ -22,7 +22,7 @@ generate_docx() {
 
 generate() {
     echo -n "Generating OWASP ASVS 4.0 ($1)..."
-    if [ -d "$1" ]; 
+    if [ -d "$1" ];
     then
         cd "$1"
         generate_docx $1
@@ -40,7 +40,7 @@ generate() {
 # Brazil
 #generate "br"
 
-# Chinese 
+# Chinese
 #generate "cn"
 
 # Czech
@@ -49,7 +49,7 @@ generate() {
 # English
 generate "en"
 
-# French 
+# French
 #generate "fr"
 
 # German
@@ -67,11 +67,14 @@ generate "en"
 # Korean
 #generate "kr"
 
+#Russian
+generate "ru"
+
 # Spanish
 # generate "es"
 
 # Ukraine
 #generate "ukr"
 
-echo 
+echo
 echo "Generated OWASP Application Security Verification Standard 4.0"
