@@ -1,25 +1,25 @@
-# Frontispiece
+# Заглавный лист
 
-## About the Standard
+## О стандарте
 
-The Application Security Verification Standard is a list of application security requirements or tests that can be used by architects, developers, testers, security professionals, tool vendors, and consumers to define, build, test and verify secure applications.
+Стандарт подтверждения безопасности приложений представляет собой список требований или тестов безопасности приложений, которые могут быть использованы проектировщиками, разработчиками, тестировщиками, специалистами по безопасности, вендорами инструментов и пользователями для определения характеристик, создания, тестирования и подтверждения качества безопасных приложений.
 
-## Copyright and License
+## Авторские права и лицензирование
 
 ![license](../images/license.png)
-Copyright © 2008-2019 The OWASP Foundation. This document is released under the [Creative Commons Attribution ShareAlike 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/). For any reuse or distribution, you must make clear to others the license terms of this work.
+Авторские права © 2008—2019, Фонд OWASP. Документ выпущен под лицензией [Creative Commons Attribution ShareAlike 3.0](https://creativecommons.org/licenses/by-sa/3.0/). В случае переиспользования или распространения данного документа необходимо указывать условия лицензионного соглашения, действующие в его отношении.
 
-Version 4.0.1, March 2019
+Версия 4.0.1, март 2019 года
 
-## Project Leads
+## Руководители проекта
 
-- Andrew van der Stock
-- Daniel Cuthbert
-- Jim Manico
-- Josh C Grossman
-- Mark Burnett
+- Эндрю ван дер Сток (Andrew van der Stock)
+- Дэниэл Катберт (Daniel Cuthbert)
+- Джим Манико (Jim Manico)
+- Джош Си Гроссман (Josh C Grossman)
+- Марк Бёрнетт (Mark Burnett)
 
-## Contributors and Reviewers
+## Участники проекта и рецензенты
 
 - Osama Elnaggar
 - Erlend Oftedal
@@ -53,6 +53,6 @@ Version 4.0.1, March 2019
 - Rogan Dawes
 - Daniël Geerts
 
-The Application Security Verification Standard is built upon the shoulders of those involved from ASVS 1.0 in 2008 to 3.0 in 2016. Much of the structure and verification items that are still in the ASVS today were originally written by Mike Boberski, Jeff Williams and Dave Wichers, but there are many more contributors. Thank you to all those previously involved. For a comprehensive list of all those who have contributed to earlier versions, please consult each prior version.
+Стандарт подтверждения безопасности приложений — это результат совместной работы участников проекта начиная с версии ASVS 1.0 (2008 года) и заканчивая версией ASVS 3.0 (2016 года). Большая часть структуры и способов подтверждения, все еще использующихся в стандарте, были описаны Майком Боберски (Mike Boberski), Джеффом Вильямсом (Jeff Williams) и Дейвом Вичерсом (Dave Wichers), тем не менее есть еще много других участников, внесших свой вклад в создание этого документа. В связи с этим хотим поблагодарить всех бывших участников проекта. Более подробные списки людей, участвовавших в создании предыдущих версий, можно найти в соответствующих версиях документа.
 
-If a credit is missing from the 4.0 credit list above, please contact vanderaj@owasp.org or log a ticket at GitHub to be recognized in future 4.x updates. 
+Если кто-то отсутствует в вышеуказанном списке благодарностей версии 4.0, сообщите об этом по адресу vanderaj@owasp.org или оставьте заявку на GitHub, чтобы мы внесли соответствующие изменения при последующих (4.x) обновлениях документа.

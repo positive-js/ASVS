@@ -2,8 +2,8 @@
 
 ![OWASP LOGO](../images/owasp_logo_1c_notext.png)
 
-# Application Security Verification Standard 4.0
+# Стандарт подтверждения безопасности приложений 4.0
 
-## Final
+## Окончательный вариант
 
-March 2019
+Март 2019 года
