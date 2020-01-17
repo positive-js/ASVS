@@ -1,62 +1,62 @@
-# Using the ASVS
+# Использование ASVS
 
-ASVS has two main goals:
+ASVS ставит перед собой две основных цели:
 
-* to help organizations develop and maintain secure applications.
-* to allow security service vendors, security tools vendors, and consumers to align their requirements and offerings.
+* помочь организациям в разработке и поддержке безопасных приложений;
+* уменьшить разницу между предложениями поставщиков средств обеспечения безопасности и ожиданиями потребителей.
 
-## Application Security Verification Levels
+## Уровни подтверждения безопасности приложений
 
-The Application Security Verification Standard defines three security verification levels, with each level increasing in depth.
+Стандарт ASVS выделяет три уровня подтверждения безопасности — чем выше уровень, тем глубже анализ.
 
-* ASVS Level 1 is for low assurance levels, and is completely penetration testable
-* ASVS Level 2 is for applications that contain sensitive data, which requires protection and is the recommended level for most apps
-* ASVS Level 3 is for the most critical applications - applications that perform high value transactions, contain sensitive medical data, or any application that requires the highest level of trust.
+* Уровень 1 — для подтверждения простых требований, подходит для тестирования на проникновение.
+* Уровень 2 — для приложений, которые содержат важные данные, требующие защиты; рекомендуется для большинства приложений.
+* Уровень 3 — для критически важных приложений, использующихся для передачи или хранения конфиденциальных данных (например, медицинских), а также для приложений, требующих наивысший уровень надежности.
 
-Each ASVS level contains a list of security requirements. Each of these requirements can also be mapped to security-specific features and capabilities that must be built into software by developers.
+Для каждого уровня ASVS имеется список требований к безопасности. Каждое требование может включать в себя несколько компонентов обеспечения безопасности, которые разработчики должны реализовать в программе.
 
-![ASVS Levels](https://raw.githubusercontent.com/OWASP/ASVS/master/4.0/images/asvs_40_levels.png "ASVS Levels")
+![ASVS Levels](../images/asvs_40_levels.png)
 
-Figure 1 - OWASP Application Security Verification Standard 4.0 Levels
+Рисунок 1. Уровни стандарта подтверждения безопасности приложений OWASP версии 4.0
 
-Level 1 is the only level that is completely penetration testable using humans. All others require access to documentation, source code, configuration, and the people involved in the development process. However, even if L1 allows "black box" (no documentation and no source) testing to occur, it is not effective assurance and must stop. Malicious attackers have a great deal of time, most penetration tests are over within a couple of weeks. Defenders need to build in security controls, protect, find and resolve all weaknesses, and detect and respond to malicious actors in a reasonable time. Malicious actors have essentially infinite time and only require a single porous defense, a single weakness, or missing detection to succeed. Black box testing, often performed at the end of development, quickly, or not at all, is completely unable to cope with that asymmetry.
+Уровень 1 — это единственный уровень, соответствие которому можно проверить тестированием на проникновение. Для всех остальных уровней требуется обращение к документации, исходному коду, параметрам настройки и разработчикам. Тестирование методом "черного ящика" (при отсутствии документации и исходного кода) является неэффективным, и от него стоит отказаться. Злоумышленники не имеют ограничений по времени на поиск уязвимостей, а на проведение пентестов отводится, как правило, несколько недель. Специалисты должны обеспечивать безопасность, находить и устранять недостатки, а также обнаруживать атаки и реагировать на них в течение определенного срока. У злоумышленников нет сроков, им требуется найти всего один недостаток в защите или возможность оставаться незамеченными, чтобы достигнуть намеченной цели. Тестирование методом "черного ящика", проводимое в сжатые сроки в конце разработки или не проводимое вообще, нельзя противопоставлять потенциальным угрозам.
 
-Over the last 30+ years, black box testing has proven over and over again to miss critical security issues that led directly to ever more massive breaches. We strongly encourage the use of a wide range of security assurance and verification, including replacing penetration tests with source code led (hybrid) penetration tests at Level 1, with full access to developers and documentation throughout the development process. Financial regulators do not tolerate external financial audits with no access to the books, sample transactions, or the people performing the controls. Industry and governments must demand the same standard of transparency in the software engineering field.
+За последние тридцать с лишним лет тестирование методом "черного ящика" не позволило обнаружить большое количество критически важных уязвимостей, которые привели к серьезным последствиям. Мы настоятельно рекомендуем использовать весь спектр проверок и методов подтверждения безопасности, заменить обычное тестирование на проникновение гибридным для исходного кода, а также обращаться к разработчикам и документации на протяжении всего цикла разработки. Финансовые регуляторы не любят внешних аудитов без доступа к журналам, транзакциям или людям, контролирующим соответствующие операции. Промышленность и правительства должны требовать такой же прозрачности в сфере разработки ПО.
 
-We strongly encourage the use of security tools within the development process itself. DAST and SAST tools can be used continuously by the build pipeline to find easy to find security issues that should never be present.
+Мы также рекомендуем использовать средства обеспечения безопасности в рамкам самого процесса разработки. Такие инструменты, как DAST и SAST, используемые на протяжении всего цикла создания приложения, позволяют обнаружить очевидные проблемы с безопасностью.
 
-Automated tools and online scans are unable to complete more than half of the ASVS without human assistance. If comprehensive test automation for each build is required, then a combination of custom unit and integration tests, along with build initiated online scans are used. Business logic flaws and access control testing is only possible using human assistance. These should be turned into unit and integration tests.
+Автоматизированные инструменты и онлайн-сканирование не способны проверить больше половины требований ASVS без участия человека. Если для каждой сборки требуются сложные автоматизированные проверки, то применяются специальные модульные и комплексные тесты, а также онлайн-сканирование после сборки. Тестирование бизнес-логики и контроля доступа возможно только при участии человека. Все это должно входить в модульное и комплексное тестирование.
 
-## How to use this standard
+## Как пользоваться стандартом
 
-One of the best ways to use the Application Security Verification Standard is to use it as a blueprint to create a Secure Coding Checklist specific to your application, platform or organization. Tailoring the ASVS to your use cases will increase the focus on the security requirements that are most important to your projects and environments.
+Один из лучших способов применения стандарта подтверждения безопасности приложений — это его использование в качестве шаблона для создания контрольного списка безопасного программирования, подходящего для вашего приложения, платформы или организации. Изменение ASVS в соответствии с вашими сценариями использования поможет акцентировать внимание на требованиях, наиболее важных для ваших проектов и окружения.
 
-### Level 1 - First steps, automated, or whole of portfolio view
+### Уровень 1. Первые шаги: автоматизация или общий анализ
 
-An application achieves ASVS Level 1 if it adequately defends against application security vulnerabilities that are easy to discover, and included in the OWASP Top 10 and other similar checklists.
+Приложение достигает 1-го уровня ASVS, если обеспечивает защиту от уязвимостей из топ-10 OWASP и других подобных списков.
 
-Level 1 is the bare minimum that all applications should strive for. It is also useful as a first step in a multi-phase effort or when applications do not store or handle sensitive data and therefore do not need the more rigorous controls of Level 2 or 3. Level 1 controls can be checked either automatically by tools or simply manually without access to source code. We consider Level 1 the minimum required for all applications.
+Уровень 1 — это минимум, к которому должны стремиться все приложения. Он подходит для сложных процессов в качестве начального этапа, а также для приложений, которые не хранят или не обрабатывают критически важные данные и поэтому не требуют соответствия более строгим требованиям 2-го или 3-го уровня. Параметры 1-го уровня можно проверять автоматически или вручную без доступа к исходному коду. Мы считаем 1-й уровень обязательным для всех приложений.
 
-Threats to the application will most likely be from attackers who are using simple and low effort techniques to identify easy-to-find and easy-to-exploit vulnerabilities. This is in contrast to a determined attacker who will spend focused energy to specifically target the application. If data processed by your application has high value, you would rarely want to stop at a Level 1 review.
+Предполагается, что злоумышленники будут искать очевидные и простые в эксплуатации уязвимости, а не будут тратить силы и время на детальный анализ приложения. Если данные, обрабатываемые вашим приложением, имеют большую ценность, то не стоит ограничиваться 1-м уровнем.
 
-### Level 2 - Most applications
+### Уровень 2. Большинство приложений
 
-An application achieves ASVS Level 2 (or Standard) if it adequately defends against most of the risks associated with software today.
+Приложение достигает 2-го (стандартного) уровня ASVS, если обеспечивает защиту от большинства рисков, связанных с современным программным обеспечением.
 
-Level 2 ensures that security controls are in place, effective, and used within the application. Level 2 is typically appropriate for applications that handle significant business-to-business transactions, including those that process healthcare information, implement business-critical or sensitive functions, or process other sensitive assets, or industries where integrity is a critical facet to protect their business, such as the game industry to thwart cheaters and game hacks.
+Уровень 2 гарантирует наличие в приложении средств обеспечения безопасности и их эффективность. Он подходит для приложений, отвечающих за важные транзакции между организациями, обрабатывающих медицинские данные, выполняющих критически значимые операции, работающих с критически важными активами, а также для отраслей, где целостность (защита от модификаций) является критически важной для бизнеса (например, борьба с читерами и мошенничеством в индустрии игр).
 
-Threats to Level 2 applications will typically be skilled and motivated attackers focusing on specific targets using tools and techniques that are highly practiced and effective at discovering and exploiting weaknesses within applications.
+Предполагается, что злоумышленники, атакующие приложения 2-го уровня, — это квалифицированные, действующие целенаправленно специалисты, которые используют проверенные инструменты и методы, позволяющие эффективно обнаруживать и эксплуатировать недостатки в приложениях.
 
-### Level 3 - High value, high assurance, or high safety
+### Уровень 3. Повышенная ценность, надежность или безопасность
 
-ASVS Level 3 is the highest level of verification within the ASVS. This level is typically reserved for applications that require significant levels of security verification, such as those that may be found within areas of military, health and safety, critical infrastructure, etc.
+Уровень 3 — это максимальный уровень стандарта подтверждения безопасности приложений (ASVS). Он предназначен для приложений, к которым предъявляются повышенные требования безопасности. Такие приложения обычно используются в силовых структурах, здравоохранении или критически важных инфраструктурах.
 
-Organizations may require ASVS Level 3 for applications that perform critical functions, where failure could significantly impact the organization's operations, and even its survivability. Example guidance on the application of ASVS Level 3 is provided below. An application achieves ASVS Level 3 (or Advanced) if it adequately defends against advanced application security vulnerabilities and also demonstrates principles of good security design.
+В организациях 3-й уровень ASVS может применяться к приложениям, выполняющим критически важные операции, сбой в работе которых может привести к серьезным последствиям для организации. Ниже представлен пример приложения 3-го уровня. Приложение достигает 3-го (продвинутого) уровня, если обеспечивает защиту от комплексных уязвимостей и имеет хорошо спроектированную систему безопасности.
 
-An application at ASVS Level 3 requires more in depth analysis or architecture, coding, and testing than all the other levels. A secure application is modularized in a meaningful way (to facilitate resiliency, scalability, and most of all, layers of security), and each module (separated by network connection and/or physical instance) takes care of its own security responsibilities (defense in depth), that need to be properly documented. Responsibilities include controls for ensuring confidentiality (e.g. encryption), integrity (e.g. transactions, input validation), availability (e.g. handling load gracefully), authentication (including between systems), non-repudiation, authorization, and auditing (logging).
+Третий уровень ASVS предполагает более тщательные анализ, структурирование, программирование и тестирование приложения, по сравнению с другими уровнями. Безопасное приложение должно быть модульным: это позволяет обеспечить устойчивость, масштабируемость и многоуровневую защиту. Каждый модуль, отделенный сетевым подключением и (или) физическим устройством, имеет свою зону ответственности (эшелонированная защита), которая должна быть задокументирована соответствующим образом. В зону ответственности входит обеспечение конфиденциальности (например, с помощью шифрования), целостности (например, через проверку транзакций и вводимых данных), доступности (например, путем грамотного распределения нагрузки), аутентификации (включая межсистемную), неподдельности, авторизации и аудита (журналирования).
 
-## Applying ASVS in Practice
+## Применение ASVS на практике
 
-Different threats have different motivations. Some industries have unique information and technology assets and domain specific regulatory compliance requirements.
+Каждая угроза обусловлена своими факторами. В каждой отрасли имеются свои уникальные данные и технологии, а также специфические требования к обеспечению безопасности.
 
-Organizations are strongly encouraged to look deeply at their unique risk characteristics based on the nature of their business, and based upon that risk and business requirements determine the appropriate ASVS level.
+Организациям рекомендуется детально изучить потенциальные риски, характерные для их бизнеса, и выбрать для себя соответствующий уровень ASVS.
